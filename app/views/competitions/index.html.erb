@@ -1,0 +1,8 @@
+<h3>Compeitions Index Page</h3>
+
+<% @competitions.each do |competition| %>
+  <div id="competition-<%= competition.id %>">
+  <p>Name: <%= competition.name %></p>
+  <p>View: <%= link_to competition.name, "/competitions/#{competition.id}" %></p>
+    </div>
+<% end %>

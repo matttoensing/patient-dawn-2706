@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get '/competitions/:id/teams/new', to: 'competitions#new'
   post '/competitions/:id/teams', to: 'competition_teams#create'
+
+  get '/teams', to: 'teams#index'
 end

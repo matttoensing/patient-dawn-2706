@@ -50,4 +50,23 @@ RSpec.describe 'competition show page' do
       expect(page).to have_content(competition.average_player_age)
     end
   end
+
+  describe 'new team registration' do
+    it 'visitor sees a link to register a new team and when clicking link, user is taken to a new page' do
+      competition = create(:competition)
+      team1 = create(:team)
+      player1 = create(:player, team: team1)
+      player2 = create(:player, team: team1)
+      team2 = create(:team)
+      comp_team1 = CompetitionTeam.create(team: team1, competition: competition)
+
+      visit "/competitions/#{competition.id}"
+
+      expect(page).to have_link("Register a Team")
+
+      click_on "Register a Team"
+
+      expect(current_path).to eq("/competitions/#{competition.id}/teams/new")
+    end
+  end
 end

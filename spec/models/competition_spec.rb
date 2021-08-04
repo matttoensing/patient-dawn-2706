@@ -21,6 +21,12 @@ RSpec.describe Competition do
 
         expect(competition.average_player_age).to eq(32)
       end
+
+      it 'will return 0 if no players or teams or associated with competition yet' do
+        competition = create(:competition)
+
+        expect(competition.average_player_age).to eq(0)
+      end
     end
   end
 end

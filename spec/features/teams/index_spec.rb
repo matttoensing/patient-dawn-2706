@@ -26,13 +26,6 @@ RSpec.describe 'teams index page' do
       expect(team1.nickname).to appear_before(team2.nickname)
       expect(page).to have_content(sorted_teams[0].avg_age)
       expect(page).to have_content(sorted_teams[1].avg_age)
-      # As a user
-      # When I visit the team index
-      # Then I see the nicknames of all teams
-      # And next to the team nickname I see the average age of its players
-      # And I see that all teams are sorted by this average age from highest to lowest
-      #
-      # (Note: you should not make a separate query for each team to calculate the average age)
     end
   end
 end

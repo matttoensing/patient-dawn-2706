@@ -1,0 +1,12 @@
+<h3>Teams Index Page</h3>
+
+<% if @teams.average_age_of_players.empty? %>
+  <% @teams.each do |team| %>
+    <p><%= team.nickname %></p>
+  <% end %>
+<% else %>
+  <% @teams.average_age_of_players.each do |team| %>
+    <p><%= team.nickname %></p>
+    <p><%= team.avg_age %></p>
+<% end %>
+<% end %>

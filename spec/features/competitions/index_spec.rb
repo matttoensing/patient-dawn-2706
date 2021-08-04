@@ -42,4 +42,18 @@ RSpec.describe 'competitions index page' do
       expect(page).to have_link(competition3.name)
     end
   end
+
+  it 'when clicking on a link, visitor is taken to that competitions show page ' do
+    competition1 = create(:competition)
+    competition2 = create(:competition)
+    competition3 = create(:competition)
+
+    visit '/competitions'
+
+    within "#competition-#{competition3.id}" do
+      click_on competition3.name
+    end
+
+    expect(current_path).to eq("/competitions/#{competition3.id}")
+  end
 end
